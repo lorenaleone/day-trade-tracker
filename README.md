@@ -59,13 +59,12 @@ O GitHub Pages publica automaticamente em ~1 minuto.
 
 ## Como personalizar
 
-### Trocar o link de checkout (Stripe)
+### Trocar o link de checkout
 
-Em `index.html`, localize o comentário e substitua `#checkout` pelo seu link do Stripe:
+O checkout está configurado via **Hotmart**. Para trocar, localize no `index.html`:
 
 ```html
-<!-- Substitua o href abaixo pelo seu link de checkout do Stripe -->
-<a href="https://buy.stripe.com/SEU_LINK_AQUI" class="cta" ...>
+<a href="https://pay.hotmart.com/I105792658U" target="_blank" ...>
 ```
 
 ### Trocar o e-mail de contato
