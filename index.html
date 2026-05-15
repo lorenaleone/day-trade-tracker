@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Trading Tracker Pro — Pare de Operar no Escuro | R$67</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Trading Tracker Pro — Pare de Operar no Escuro | R$67">
+<meta name="description" content="Planilha Trading Tracker Pro: o sistema de controle que mostra exatamente por que você está perdendo dinheiro. Win Rate, Profit Factor, alerta anti-tilt e padrões reais — por R$67.">
+<meta property="og:description" content="Planilha Trading Tracker Pro: o sistema de controle que mostra exatamente por que você está perdendo dinheiro. Win Rate, Profit Factor, alerta anti-tilt e padrões reais — por R$67.">
+<meta name="keywords" content="planilha day trade, trading tracker, controle de operações, win rate, profit factor, diário de trade, day trader brasil">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.css">
+
+<style>
+  :root{
+    --navy:#0D1B2A;
+    --navy-2:#0F2236;
+    --navy-3:#13283F;
+    --line:rgba(255,255,255,.08);
+    --line-strong:rgba(255,255,255,.16);
+    --text:#E6EEF7;
+    --muted:#8FA3B8;
+    --green:#00E676;
+    --green-2:#00C766;
+    --amber:#FFB300;
+    --red:#FF5252;
+    --radius:14px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Space Grotesk',system-ui,-apple-system,sans-serif;
+    background:var(--navy);
+    color:var(--text);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{position:relative;padding:90px 0}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.1;letter-spacing:-.02em;margin:0 0 18px}
+  h1{font-size:clamp(2rem,5.4vw,3.6rem)}
+  h2{font-size:clamp(1.7rem,3.6vw,2.6rem)}
+  h3{font-size:1.18rem;letter-spacing:-.01em}
+  p{margin:0 0 14px;color:var(--muted)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--green);padding:7px 12px;border:1px solid rgba(0,230,118,.28);border-radius:999px;
+    background:rgba(0,230,118,.06);margin-bottom:18px;
+  }
+  .eyebrow.amber{color:var(--amber);border-color:rgba(255,179,0,.3);background:rgba(255,179,0,.06)}
+  /* CTA */
+  .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--green);color:#06231A;font-weight:700;font-size:1.05rem;
+    padding:18px 32px;border-radius:12px;text-decoration:none;
+    box-shadow:0 10px 30px rgba(0,230,118,.28), inset 0 -2px 0 rgba(0,0,0,.18);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    letter-spacing:-.01em;
+  }
+  .cta:hover{transform:translateY(-2px);background:#15F085;box-shadow:0 14px 36px rgba(0,230,118,.4)}
+  .cta-ghost{
+    display:inline-flex;align-items:center;gap:8px;color:var(--text);
+    text-decoration:none;font-size:.95rem;border-bottom:1px dashed var(--line-strong);
+    padding-bottom:2px;
+  }
+  .cta-wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(13,27,42,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;max-width:var(--maxw);margin:0 auto}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.01em}
+  .brand-mark{
+    width:32px;height:32px;border-radius:8px;
+    background:linear-gradient(135deg,var(--green),#00B85B);
+    display:grid;place-items:center;color:#062014;
+  }
+  .nav .cta{padding:10px 18px;font-size:.9rem;box-shadow:none}
+  /* HERO */
+  .hero{padding-top:60px;padding-bottom:60px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+  .hero h1 span.amber{color:var(--amber)}
+  .hero h1 span.green{color:var(--green)}
+  .hero .sub{font-size:1.12rem;color:#C5D2E0;max-width:560px;margin-bottom:28px}
+  .price-pill{
+    display:inline-flex;align-items:baseline;gap:10px;
+    background:#0A1623;border:1px solid var(--line-strong);
+    padding:10px 16px;border-radius:10px;margin-bottom:8px;
+  }
+  .price-pill .strike{color:var(--muted);text-decoration:line-through;font-size:.95rem}
+  .price-pill .now{color:var(--green);font-weight:700;font-size:1.05rem}
+  .hero-bullets{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:10px}
+  .hero-bullets li{display:flex;gap:10px;align-items:flex-start;color:#C5D2E0;font-size:.96rem}
+  .hero-bullets svg{flex-shrink:0;margin-top:2px}
+  /* Terminal mock */
+  .terminal{
+    background:linear-gradient(180deg,#0A1623,#0E1D2F);
+    border:1px solid var(--line-strong);
+    border-radius:16px;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(0,230,118,.08);
+    position:relative;
+  }
+  .terminal::before{
+    content:"";position:absolute;inset:-1px;border-radius:16px;pointer-events:none;
+    background:linear-gradient(135deg,rgba(0,230,118,.25),transparent 40%,transparent 70%,rgba(0,230,118,.15));
+    -webkit-mask:linear-gradient(#000,#000) content-box,linear-gradient(#000,#000);
+    -webkit-mask-composite:xor;mask-composite:exclude;padding:1px;
+  }
+  .term-bar{display:flex;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid var(--line);background:#091421}
+  .term-bar .dot{width:11px;height:11px;border-radius:50%}
+  .term-bar .d1{background:#FF5F57}.term-bar .d2{background:#FEBC2E}.term-bar .d3{background:#28C840}
+  .term-bar .name{margin-left:12px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted)}
+  .term-body{padding:22px}
+  .term-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+  .stat{
+    background:#0A1623;border:1px solid var(--line);border-radius:10px;padding:14px;
+  }
+  .stat .label{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+  .stat .val{font-family:'JetBrains Mono',monospace;font-size:1.45rem;font-weight:700;margin-top:6px}
+  .stat.green .val{color:var(--green)}
+  .stat.amber .val{color:var(--amber)}
+  .stat .delta{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--green);margin-top:4px}
+  .stat .delta.neg{color:var(--red)}
+  .chart{
+    margin-top:10px;height:140px;border-radius:10px;
+    background:
+      linear-gradient(180deg,rgba(0,230,118,.18),transparent 75%),
+      repeating-linear-gradient(0deg,rgba(255,255,255,.04) 0 1px,transparent 1px 28px),
+      repeating-linear-gradient(90deg,rgba(255,255,255,.04) 0 1px,transparent 1px 40px),
+      #0A1623;
+    border:1px solid var(--line);
+    position:relative;overflow:hidden;
+  }
+  .chart svg{position:absolute;inset:0;width:100%;height:100%}
+  .term-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted)}
+  .live-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(0,230,118,.6);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,230,118,.7)}70%{box-shadow:0 0 0 10px rgba(0,230,118,0)}100%{box-shadow:0 0 0 0 rgba(0,230,118,0)}}
+
+  /* Section alternation */
+  .panel-alt{background:var(--navy-2)}
+  .panel-deep{background:#091421}
+  .section-head{text-align:center;max-width:740px;margin:0 auto 50px}
+  .section-head p{font-size:1.05rem}
+
+  /* Pains */
+  .pains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pain{
+    background:#0A1623;border:1px solid var(--line);border-radius:14px;
+    padding:26px;transition:border-color .2s, transform .2s;
+  }
+  .pain:hover{border-color:rgba(255,179,0,.35);transform:translateY(-3px)}
+  .pain-icon{
+    width:44px;height:44px;border-radius:10px;display:grid;place-items:center;
+    background:rgba(255,179,0,.1);color:var(--amber);margin-bottom:14px;
+    border:1px solid rgba(255,179,0,.22);
+  }
+  .pain h3{color:#fff;margin-bottom:8px}
+  .pain p{font-size:.95rem;margin:0}
+
+  /* Transformation */
+  .transform-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:30px;align-items:stretch}
+  .transform-col{
+    background:#0A1623;border:1px solid var(--line);border-radius:16px;padding:30px;
+    display:flex;flex-direction:column;
+  }
+  .transform-col.before{border-top:3px solid var(--amber)}
+  .transform-col.after{border-top:3px solid var(--green)}
+  .transform-col h3{display:flex;align-items:center;gap:10px;margin-bottom:18px;color:#fff}
+  .transform-col .tag{
+    font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;
+    padding:4px 10px;border-radius:999px;text-transform:uppercase;
+  }
+  .transform-col.before .tag{background:rgba(255,179,0,.12);color:var(--amber);border:1px solid rgba(255,179,0,.3)}
+  .transform-col.after .tag{background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.3)}
+  .transform-col ul{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:12px}
+  .transform-col li{display:flex;gap:10px;align-items:flex-start;color:#C5D2E0;font-size:.96rem}
+  .transform-col li svg{flex-shrink:0;margin-top:3px}
+  .transform-col.before li svg{color:#FF7F7F}
+  .transform-col.after li svg{color:var(--green)}
+  .metrics-block{margin-top:auto;border-top:1px dashed var(--line-strong);padding-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .metrics-block .mblock{text-align:center}
+  .metrics-block .mlabel{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+  .metrics-block .mval{font-family:'JetBrains Mono',monospace;font-size:1.55rem;font-weight:700;margin-top:4px}
+  .before .mval{color:#FF7F7F}
+  .after .mval{color:var(--green)}
+  .arrow-wrap{display:flex;align-items:center;justify-content:center;color:var(--green)}
+  .arrow-wrap .arrow{
+    width:54px;height:54px;border-radius:50%;background:rgba(0,230,118,.1);
+    display:grid;place-items:center;border:1px solid rgba(0,230,118,.3);
+  }
+
+  /* Features */
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feature{
+    background:linear-gradient(180deg,#0A1623,#0C1A2A);
+    border:1px solid var(--line);border-radius:14px;padding:26px;
+    position:relative;overflow:hidden;transition:.25s;
+  }
+  .feature:hover{border-color:rgba(0,230,118,.35);transform:translateY(-3px)}
+  .feature::after{
+    content:"";position:absolute;top:0;right:0;width:120px;height:120px;
+    background:radial-gradient(circle at top right,rgba(0,230,118,.12),transparent 60%);
+    pointer-events:none;
+  }
+  .feature .ficon{
+    width:46px;height:46px;border-radius:11px;display:grid;place-items:center;
+    background:rgba(0,230,118,.1);color:var(--green);margin-bottom:14px;
+    border:1px solid rgba(0,230,118,.22);
+  }
+  .feature.alt .ficon{background:rgba(255,179,0,.1);color:var(--amber);border-color:rgba(255,179,0,.25)}
+  .feature h3{color:#fff;margin-bottom:6px}
+  .feature p{margin:0;font-size:.94rem}
+  .feature.span2{grid-column:span 2}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:step}
+  .step{
+    background:#0A1623;border:1px solid var(--line);border-radius:14px;padding:30px 26px;
+    position:relative;
+  }
+  .step-num{
+    font-family:'JetBrains Mono',monospace;font-size:3rem;font-weight:700;
+    color:var(--green);opacity:.9;line-height:1;margin-bottom:12px;
+  }
+  .step h3{color:#fff;margin-bottom:8px}
+  .step p{margin:0;font-size:.96rem}
+  @media (min-width:880px){.step{padding:34px 28px}}
+
+  /* Testimonials */
+  .testimonials{position:relative}
+  .swiper{padding:10px 4px 60px;overflow:visible}
+  .swiper-slide{height:auto}
+  .tcard{
+    background:#0A1623;border:1px solid var(--line);border-radius:14px;
+    padding:28px;height:100%;display:flex;flex-direction:column;
+  }
+  .tcard .quote-icon{color:var(--green);opacity:.4;margin-bottom:8px}
+  .tcard blockquote{margin:0 0 18px;font-size:1.02rem;color:#DCE6F1;line-height:1.55;flex:1}
+  .tcard .who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+  .tcard .who img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+  .tcard .name{font-weight:600;color:#fff;font-size:.95rem}
+  .tcard .role{font-size:.82rem;color:var(--muted);font-family:'JetBrains Mono',monospace}
+  .tcard .mini-stats{display:flex;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+  .tcard .mini-stats span{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--green);background:rgba(0,230,118,.08);padding:4px 10px;border-radius:6px;border:1px solid rgba(0,230,118,.2)}
+  .swiper-pagination-bullet{background:#fff;opacity:.25}
+  .swiper-pagination-bullet-active{background:var(--green);opacity:1;width:24px;border-radius:4px}
+
+  /* Guarantee */
+  .guarantee{
+    background:linear-gradient(135deg,#0A1623,#0E2538);
+    border:1px solid rgba(0,230,118,.3);border-radius:18px;padding:50px;
+    display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;
+    position:relative;overflow:hidden;
+  }
+  .guarantee::before{
+    content:"";position:absolute;top:-50px;right:-50px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(0,230,118,.16),transparent 60%);
+    pointer-events:none;
+  }
+  .shield{
+    width:96px;height:96px;border-radius:24px;display:grid;place-items:center;
+    background:rgba(0,230,118,.12);color:var(--green);border:1px solid rgba(0,230,118,.35);
+  }
+  .guarantee h2{margin-bottom:8px;font-size:1.7rem}
+  .guarantee p{margin:0;color:#C5D2E0;max-width:560px}
+
+  /* Final CTA */
+  .final{text-align:center;padding:110px 0}
+  .final-card{
+    max-width:780px;margin:0 auto;background:#0A1623;
+    border:1px solid var(--line-strong);border-radius:20px;padding:50px 40px;
+    position:relative;overflow:hidden;
+  }
+  .final-card::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 50% 0%,rgba(0,230,118,.12),transparent 60%);
+    pointer-events:none;
+  }
+  .final-card .price{font-family:'JetBrains Mono',monospace;font-size:3.4rem;font-weight:700;color:var(--green);line-height:1;margin:10px 0 6px}
+  .final-card .vat{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--muted);margin-bottom:24px}
+  .final-card h2{margin-bottom:14px}
+  .final-meta{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:22px;font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted)}
+  .final-meta span{display:inline-flex;align-items:center;gap:6px}
+  .final-meta svg{color:var(--green)}
+  .urgency{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,179,0,.1);color:var(--amber);
+    padding:8px 14px;border-radius:999px;font-size:.85rem;font-family:'JetBrains Mono',monospace;
+    border:1px solid rgba(255,179,0,.28);margin-bottom:18px;
+  }
+
+  /* Footer */
+  footer{padding:40px 0;border-top:1px solid var(--line);background:#08111C}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+  .foot-inner a{color:var(--muted);text-decoration:none;margin-left:18px}
+  .foot-inner a:hover{color:var(--text)}
+
+  /* Responsive */
+  @media (max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .pains,.features,.steps{grid-template-columns:1fr 1fr}
+    .feature.span2{grid-column:auto}
+    .transform-grid{grid-template-columns:1fr;gap:18px}
+    .arrow-wrap{transform:rotate(90deg);margin:6px 0}
+    .guarantee{grid-template-columns:1fr;text-align:center;padding:36px}
+    .guarantee p{margin:0 auto}
+  }
+  @media (max-width:640px){
+    section{padding:64px 0}
+    .pains,.features,.steps{grid-template-columns:1fr}
+    .cta{width:100%}
+    .nav .cta{width:auto}
+    .nav-cta-mobile{display:none}
+    .final-card{padding:36px 22px}
+    .final-card .price{font-size:2.6rem}
+    .metrics-block{grid-template-columns:repeat(3,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <span class="brand-mark"><i data-lucide="line-chart" style="width:18px;height:18px"></i></span>
+      <span>Trading Tracker <span style="color:var(--green)">Pro</span></span>
+    </div>
+    <a href="#oferta" class="cta nav-cta-mobile">Quero por R$67</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><i data-lucide="terminal" style="width:14px;height:14px"></i> Planilha para Day Traders BR</span>
+        <h1>Você opera <span class="amber">no escuro</span> — e é por isso que está <span class="amber">perdendo dinheiro.</span></h1>
+        <p class="sub">O Trading Tracker Pro transforma cada operação em dado, cada padrão em decisão e cada erro em aprendizado. Pare de adivinhar. Comece a operar com <strong style="color:var(--green)">controle real</strong>.</p>
+        <div class="cta-wrap">
+          <a href="#oferta" class="cta">
+            Quero meu Tracker por R$67
+            <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+          </a>
+          <a href="#como-funciona" class="cta-ghost">Ver como funciona</a>
+        </div>
+        <ul class="hero-bullets">
+          <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Acesso vitalício, atualizações inclusas</li>
+          <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Funciona em Excel e Google Sheets</li>
+          <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Garantia incondicional de 7 dias</li>
+        </ul>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="term-bar">
+          <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+          <span class="name">tracker_pro.xlsx — DASHBOARD</span>
+        </div>
+        <div class="term-body">
+          <div class="term-row">
+            <div class="stat green">
+              <div class="label">Win Rate</div>
+              <div class="val" data-counter="68" data-suffix="%">0%</div>
+              <div class="delta">▲ +12% vs mês anterior</div>
+            </div>
+            <div class="stat green">
+              <div class="label">Profit Factor</div>
+              <div class="val" data-counter="2.4" data-decimals="1">0.0</div>
+              <div class="delta">▲ Saudável</div>
+            </div>
+            <div class="stat amber">
+              <div class="label">Payoff</div>
+              <div class="val" data-counter="1.8" data-decimals="1">0.0</div>
+              <div class="delta">▲ Acima da meta</div>
+            </div>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 400 140" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="grad1" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#00E676" stop-opacity=".5"/>
+                  <stop offset="100%" stop-color="#00E676" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path d="M0,110 L40,95 L80,100 L120,80 L160,85 L200,60 L240,70 L280,45 L320,55 L360,30 L400,20 L400,140 L0,140 Z" fill="url(#grad1)"/>
+              <path d="M0,110 L40,95 L80,100 L120,80 L160,85 L200,60 L240,70 L280,45 L320,55 L360,30 L400,20" fill="none" stroke="#00E676" stroke-width="2.2"/>
+            </svg>
+          </div>
+          <div class="term-foot">
+            <span><span class="live-dot"></span> Atualização em tempo real</span>
+            <span>R$ +4.382,50 <span style="color:var(--green)">▲ 18,3%</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Dores -->
+<section class="panel-deep" id="dores">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow amber"><i data-lucide="alert-triangle" style="width:14px;height:14px"></i> A verdade desconfortável</span>
+      <h2>Se você se identifica com isso, está operando no escuro.</h2>
+      <p>Sem dado, sem padrão, sem consciência. Reconheça as dores antes que elas reconheçam sua conta.</p>
+    </div>
+    <div class="pains">
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="eye-off"></i></div>
+        <h3>Não sabe seu Win Rate real</h3>
+        <p>Você acha que está no positivo, mas nunca mediu. Sem o número, sua estratégia é só sensação.</p>
+      </article>
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="shuffle"></i></div>
+        <h3>Opera sem padrão definido</h3>
+        <p>Hoje scalp, amanhã swing, depois "feeling". Resultado: ruído nas estatísticas e zero replicabilidade.</p>
+      </article>
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="flame"></i></div>
+        <h3>Entra em tilt e devolve tudo</h3>
+        <p>Lucrou de manhã, perdeu tudo à tarde tentando recuperar. Sem alerta, sem freio, sem controle.</p>
+      </article>
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="help-circle"></i></div>
+        <h3>Perdeu e não sabe por quê</h3>
+        <p>Foi o setup? O horário? O estado emocional? Sem registro, todo dia é primeiro dia.</p>
+      </article>
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="calendar-x"></i></div>
+        <h3>Não consegue ver progresso</h3>
+        <p>Meses operando e nenhuma evolução mensurável. Sem histórico, não existe curva de aprendizado.</p>
+      </article>
+      <article class="pain">
+        <div class="pain-icon"><i data-lucide="trending-down"></i></div>
+        <h3>Vive de palpite, não de processo</h3>
+        <p>Trader profissional decide por dado. Amador decide por humor. Adivinha em qual lado está sua conta?</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Transformação -->
+<section id="transformacao">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i data-lucide="git-compare-arrows" style="width:14px;height:14px"></i> Antes × Depois</span>
+      <h2>Do escuro ao <span style="color:var(--green)">controle total</span>.</h2>
+      <p>Mesmo trader, mesmo mercado, mesmo capital. A diferença está em saber exatamente o que está acontecendo.</p>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-col before">
+        <h3><span class="tag">Antes</span></h3>
+        <ul>
+          <li><i data-lucide="x"></i> "Acho que tive um mês ok..."</li>
+          <li><i data-lucide="x"></i> Sem ideia de qual setup funciona</li>
+          <li><i data-lucide="x"></i> Tilt vira hábito invisível</li>
+          <li><i data-lucide="x"></i> Mesmo erro repetido toda semana</li>
+          <li><i data-lucide="x"></i> Decisões emocionais, não estatísticas</li>
+        </ul>
+        <div class="metrics-block">
+          <div class="mblock"><div class="mlabel">Win Rate</div><div class="mval mono">?</div></div>
+          <div class="mblock"><div class="mlabel">Profit Factor</div><div class="mval mono">?</div></div>
+          <div class="mblock"><div class="mlabel">Payoff</div><div class="mval mono">?</div></div>
+        </div>
+      </div>
+      <div class="arrow-wrap"><div class="arrow"><i data-lucide="arrow-right" style="width:24px;height:24px"></i></div></div>
+      <div class="transform-col after">
+        <h3><span class="tag">Depois</span></h3>
+        <ul>
+          <li><i data-lucide="check"></i> "Meu Win Rate é 64% em rompimento"</li>
+          <li><i data-lucide="check"></i> Setup vencedor identificado e replicado</li>
+          <li><i data-lucide="check"></i> Alerta anti-tilt antes do prejuízo</li>
+          <li><i data-lucide="check"></i> Padrões emocionais mapeados</li>
+          <li><i data-lucide="check"></i> Decisões frias, baseadas em histórico</li>
+        </ul>
+        <div class="metrics-block">
+          <div class="mblock"><div class="mlabel">Win Rate</div><div class="mval mono" data-counter="64" data-suffix="%">0%</div></div>
+          <div class="mblock"><div class="mlabel">Profit Factor</div><div class="mval mono" data-counter="2.3" data-decimals="1">0.0</div></div>
+          <div class="mblock"><div class="mlabel">Payoff</div><div class="mval mono" data-counter="1.7" data-decimals="1">0.0</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Diferenciais -->
+<section class="panel-deep" id="diferenciais">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i data-lucide="sparkles" style="width:14px;height:14px"></i> Diferenciais</span>
+      <h2>Não é uma planilha. É um <span style="color:var(--green)">sistema operacional</span> para o seu trade.</h2>
+      <p>7 funcionalidades que separam quem registra operações de quem realmente entende seu trading.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <div class="ficon"><i data-lucide="layout-grid"></i></div>
+        <h3>Abas automáticas por estratégia</h3>
+        <p>Scalp, day trade, swing — cada operação cai na aba certa, com métricas separadas e comparáveis.</p>
+      </article>
+      <article class="feature alt">
+        <div class="ficon"><i data-lucide="brain"></i></div>
+        <h3>Rastreio emocional integrado</h3>
+        <p>Marque o estado mental antes e depois. Descubra se você perde mais em ansiedade ou em ganância.</p>
+      </article>
+      <article class="feature alt">
+        <div class="ficon"><i data-lucide="siren"></i></div>
+        <h3>Alerta anti-tilt</h3>
+        <p>Após X perdas seguidas ou drawdown definido, a planilha pisca em amarelo. Você pára, ou você quebra.</p>
+      </article>
+      <article class="feature">
+        <div class="ficon"><i data-lucide="lightbulb"></i></div>
+        <h3>Sugestão de cenário</h3>
+        <p>Baseado no seu histórico, a planilha indica os horários, setups e ativos onde você performa melhor.</p>
+      </article>
+      <article class="feature">
+        <div class="ficon"><i data-lucide="activity"></i></div>
+        <h3>Métricas em tempo real</h3>
+        <p>Win Rate, Profit Factor, Payoff, Expectância e Drawdown recalculados a cada operação inserida.</p>
+      </article>
+      <article class="feature">
+        <div class="ficon"><i data-lucide="bar-chart-3"></i></div>
+        <h3>Dashboard visual</h3>
+        <p>Gráfico de equity, distribuição por setup, calendário de resultados e curva de evolução semanal.</p>
+      </article>
+      <article class="feature alt span2">
+        <div class="ficon"><i data-lucide="file-spreadsheet"></i></div>
+        <h3>Compatível com Excel e Google Sheets</h3>
+        <p>Funciona offline no Excel ou em nuvem no Sheets, com sincronização em qualquer dispositivo. Sem instalação, sem complicação, sem mensalidade.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Como Funciona -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i data-lucide="workflow" style="width:14px;height:14px"></i> Como funciona</span>
+      <h2>3 passos. Zero curva de aprendizado.</h2>
+      <p>Em menos de 10 minutos você está com a primeira operação registrada e o primeiro padrão revelado.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <div class="step-num mono">01</div>
+        <h3>Compre e acesse</h3>
+        <p>Após o pagamento, você recebe o arquivo por e-mail e o link de acesso no Google Sheets. Em 2 minutos está aberto na sua tela.</p>
+      </article>
+      <article class="step">
+        <div class="step-num mono">02</div>
+        <h3>Preencha suas operações</h3>
+        <p>Insira ativo, setup, entrada, saída, stop e estado emocional. Cada campo leva segundos — e cada linha vira inteligência.</p>
+      </article>
+      <article class="step">
+        <div class="step-num mono">03</div>
+        <h3>Veja padrões e métricas</h3>
+        <p>O dashboard se atualiza automaticamente. Win Rate, Profit Factor, melhor horário e setup vencedor aparecem na hora.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Depoimentos -->
+<section class="panel-deep testimonials" id="depoimentos">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i data-lucide="users" style="width:14px;height:14px"></i> Prova social</span>
+      <h2>Traders que saíram do escuro.</h2>
+      <p>Resultados reais de quem trocou achismo por consciência operacional.</p>
+    </div>
+    <div class="swiper" id="testiSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="tcard">
+            <i data-lucide="quote" class="quote-icon"></i>
+            <div class="mini-stats"><span>Win Rate: 41% → 63%</span><span>3 meses</span></div>
+            <blockquote>"Em duas semanas descobri que perdia 80% do que ganhava entre 15h e 16h. Cortei esse horário e o mês fechou positivo pela primeira vez em 2025."</blockquote>
+            <div class="who">
+              <img src="https://images.unsplash.com/photo-1678282955808-de92256dbd59?w=100&q=80" alt="Trader Rafael M.">
+              <div><div class="name">Rafael M.</div><div class="role">Day trader • Mini índice</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <i data-lucide="quote" class="quote-icon"></i>
+            <div class="mini-stats"><span>Profit Factor 1.1 → 2.0</span><span>60 dias</span></div>
+            <blockquote>"O alerta anti-tilt me salvou. Antes eu duplicava posição depois de duas perdas. Agora a planilha pisca, eu fecho a tela e volto no dia seguinte. Mudou o jogo."</blockquote>
+            <div class="who">
+              <img src="https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?w=100&q=80" alt="Trader Camila S.">
+              <div><div class="name">Camila S.</div><div class="role">Swing trader • Ações</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <i data-lucide="quote" class="quote-icon"></i>
+            <div class="mini-stats"><span>Drawdown -28% → -9%</span><span>4 meses</span></div>
+            <blockquote>"Operava há 2 anos sem saber meu Payoff. Quando vi o número, entendi que meu problema não era entrada, era saída. Ajustei o stop e o gráfico de equity virou."</blockquote>
+            <div class="who">
+              <img src="https://images.unsplash.com/photo-1767175155385-a51ced9580ec?w=100&q=80" alt="Trader Bruno L.">
+              <div><div class="name">Bruno L.</div><div class="role">Day trader • Dólar futuro</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <i data-lucide="quote" class="quote-icon"></i>
+            <div class="mini-stats"><span>+R$ 6.200 em 30 dias</span><span>5° mês operando</span></div>
+            <blockquote>"O rastreio emocional foi o divisor. Descobri que minhas piores operações eram sempre depois de discussões em casa. Hoje eu não opero nesses dias. Simples assim."</blockquote>
+            <div class="who">
+              <img src="https://images.unsplash.com/photo-1768247695726-022586dea3a1?w=100&q=80" alt="Trader Larissa P.">
+              <div><div class="name">Larissa P.</div><div class="role">Day trader • Mini dólar</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="tcard">
+            <i data-lucide="quote" class="quote-icon"></i>
+            <div class="mini-stats"><span>Win Rate 52% → 67%</span><span>Setup rompimento</span></div>
+            <blockquote>"Tinha 4 setups na cabeça. A planilha me mostrou que só 1 era lucrativo. Cortei 3 estratégias e dobrei o lucro mensal. Foi quase doloroso ver o número."</blockquote>
+            <div class="who">
+              <img src="https://images.unsplash.com/photo-1691622355048-4d75ac28ec31?w=100&q=80" alt="Trader Diego R.">
+              <div><div class="name">Diego R.</div><div class="role">Day trader • WIN</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Garantia -->
+<section id="garantia">
+  <div class="container">
+    <div class="guarantee">
+      <div class="shield"><i data-lucide="shield-check" style="width:48px;height:48px"></i></div>
+      <div>
+        <span class="eyebrow"><i data-lucide="lock" style="width:14px;height:14px"></i> Garantia incondicional</span>
+        <h2>7 dias para testar. Zero risco. Zero perguntas.</h2>
+        <p>Baixe o Trading Tracker Pro, registre suas operações, mexa nas abas, teste o dashboard. Se em até 7 dias você achar que não vale cada centavo dos R$67, basta um e-mail e devolvemos 100% do valor. O risco é todo nosso.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+        <div class="mono" style="font-size:2.4rem;font-weight:700;color:var(--green);line-height:1">7</div>
+        <div class="mono" style="font-size:.72rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase">Dias de garantia</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="final panel-deep" id="oferta">
+  <div class="container">
+    <div class="final-card">
+      <div class="urgency"><i data-lucide="clock" style="width:14px;height:14px"></i> Oferta de lançamento — preço promocional limitado</div>
+      <h2>Pare de operar no escuro. Comece hoje.</h2>
+      <p style="max-width:560px;margin:0 auto 8px">Acesso vitalício ao Trading Tracker Pro, com todas as atualizações futuras inclusas. Pagamento único.</p>
+      <div class="price mono">R$67</div>
+      <div class="vat">à vista ou em até 12x no cartão</div>
+
+      <!-- Substitua o href abaixo pelo seu link de checkout do Stripe -->
+      <a href="#checkout" class="cta" style="margin:0 auto 18px;display:inline-flex;font-size:1.1rem;padding:20px 36px">
+        Quero meu Tracker por R$67 →
+      </a>
+
+      <div class="final-meta">
+        <span><i data-lucide="shield-check" style="width:14px;height:14px"></i> 7 dias de garantia</span>
+        <span><i data-lucide="zap" style="width:14px;height:14px"></i> Acesso imediato</span>
+        <span><i data-lucide="refresh-cw" style="width:14px;height:14px"></i> Atualizações vitalícias</span>
+        <span><i data-lucide="credit-card" style="width:14px;height:14px"></i> Pagamento seguro</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2026 Trading Tracker Pro. Todos os direitos reservados.</div>
+    <div>
+      <a href="#">Termos</a>
+      <a href="#">Privacidade</a>
+      <a href="mailto:suporte@tradingtrackerpro.com.br">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  new Swiper('#testiSwiper', {
+    slidesPerView: 1,
+    spaceBetween: 18,
+    grabCursor: true,
+    pagination: { el: '.swiper-pagination', clickable: true },
+    breakpoints: {
+      640: { slidesPerView: 1.4, spaceBetween: 18 },
+      900: { slidesPerView: 2.2, spaceBetween: 22 },
+      1180: { slidesPerView: 3, spaceBetween: 24 }
+    }
+  });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('[data-counter]').forEach(el => {
+    const target = parseFloat(el.dataset.counter);
+    const decimals = parseInt(el.dataset.decimals || '0');
+    const suffix = el.dataset.suffix || '';
+    const obj = { v: 0 };
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 88%',
+      once: true,
+      onEnter: () => {
+        gsap.to(obj, {
+          v: target,
+          duration: 1.6,
+          ease: 'power2.out',
+          onUpdate: () => { el.textContent = obj.v.toFixed(decimals) + suffix; }
+        });
+      }
+    });
+  });
+
+  ['.pain', '.feature', '.step', '.transform-col', '.tcard', '.guarantee', '.hero-bullets li'].forEach(sel => {
+    gsap.utils.toArray(sel).forEach((el, i) => {
+      gsap.fromTo(el,
+        { opacity: 0, y: 22 },
+        { opacity: 1, y: 0, duration: .7, ease: 'power2.out', delay: (i % 4) * 0.06,
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true } }
+      );
+    });
+  });
+
+  gsap.to('.terminal', { y: -8, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+</script>
+</body>
+</html>
