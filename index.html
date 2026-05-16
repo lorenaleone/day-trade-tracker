@@ -14,7 +14,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.css">
 
 <style>
   :root{
@@ -304,6 +303,16 @@
   .foot-inner a{color:var(--muted);text-decoration:none;margin-left:18px}
   .foot-inner a:hover{color:var(--text)}
 
+  /* FAQ */
+  .faq-list{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  .faq-item{background:#0A1623;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .2s}
+  .faq-item[open]{border-color:rgba(0,230,118,.35)}
+  .faq-item summary{padding:20px 24px;font-weight:600;font-size:1rem;color:#fff;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq-item summary::after{content:"+";font-size:1.4rem;color:var(--green);flex-shrink:0;transition:transform .2s;line-height:1}
+  .faq-item[open] summary::after{transform:rotate(45deg)}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item p{margin:0;padding:0 24px 20px;font-size:.96rem;border-top:1px solid var(--line);padding-top:16px}
+
   /* Responsive */
   @media (max-width:980px){
     .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -356,7 +365,15 @@
         <ul class="hero-bullets">
           <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Acesso vitalício, atualizações inclusas</li>
           <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Funciona em Excel e Google Sheets</li>
+          <li><i data-lucide="check-circle-2" style="width:18px;height:18px;color:var(--green)"></i> Garantia incondicional de 7 dias</li>
         </ul>
+        <div style="margin-top:32px">
+          <a href="https://pay.hotmart.com/I105792658U" target="_blank" rel="noopener" class="cta">
+            Quero meu Tracker por R$67
+            <i data-lucide="arrow-right" style="width:18px;height:18px"></i>
+          </a>
+          <p style="margin-top:10px;font-size:.82rem;color:var(--muted);font-family:'JetBrains Mono',monospace">ou 9x de R$8,80 no cartão</p>
+        </div>
       </div>
     </div>
   </div>
@@ -515,73 +532,77 @@
   </div>
 </section>
 
-<!-- Depoimentos -->
-<section class="panel-deep testimonials" id="depoimentos">
+<!-- Veja na Prática -->
+<section class="panel-deep" id="preview">
   <div class="container">
     <div class="section-head">
-      <span class="eyebrow"><i data-lucide="users" style="width:14px;height:14px"></i> Prova social</span>
-      <h2>Traders que saíram do escuro.</h2>
-      <p>Resultados reais de quem trocou achismo por consciência operacional.</p>
+      <span class="eyebrow"><i data-lucide="play-circle" style="width:14px;height:14px"></i> Veja na prática</span>
+      <h2>A planilha funcionando <span style="color:var(--green)">de verdade.</span></h2>
+      <p>Veja como é simples registrar uma operação e enxergar seus padrões em tempo real.</p>
     </div>
-    <div class="swiper" id="testiSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="tcard">
-            <i data-lucide="quote" class="quote-icon"></i>
-            <div class="mini-stats"><span>Win Rate: 41% → 63%</span><span>3 meses</span></div>
-            <blockquote>"Em duas semanas descobri que perdia 80% do que ganhava entre 15h e 16h. Cortei esse horário e o mês fechou positivo pela primeira vez em 2025."</blockquote>
-            <div class="who">
-              <img src="https://images.unsplash.com/photo-1678282955808-de92256dbd59?w=100&q=80" alt="Trader Rafael M.">
-              <div><div class="name">Rafael M.</div><div class="role">Day trader • Mini índice</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="tcard">
-            <i data-lucide="quote" class="quote-icon"></i>
-            <div class="mini-stats"><span>Profit Factor 1.1 → 2.0</span><span>60 dias</span></div>
-            <blockquote>"O Profit Factor foi o divisor. Antes eu achava que estava no lucro. Quando vi o número real, entendi que estava pagando pra operar. Ajustei o tamanho da posição e o resultado virou."</blockquote>
-            <div class="who">
-              <img src="https://images.unsplash.com/photo-1567336273898-ebbf9eb3c3bf?w=100&q=80" alt="Trader Camila S.">
-              <div><div class="name">Camila S.</div><div class="role">Swing trader • Ações</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="tcard">
-            <i data-lucide="quote" class="quote-icon"></i>
-            <div class="mini-stats"><span>Drawdown -28% → -9%</span><span>4 meses</span></div>
-            <blockquote>"Operava há 2 anos sem saber meu Payoff. Quando vi o número, entendi que meu problema não era entrada, era saída. Ajustei o stop e o gráfico de equity virou."</blockquote>
-            <div class="who">
-              <img src="https://images.unsplash.com/photo-1767175155385-a51ced9580ec?w=100&q=80" alt="Trader Bruno L.">
-              <div><div class="name">Bruno L.</div><div class="role">Day trader • Dólar futuro</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="tcard">
-            <i data-lucide="quote" class="quote-icon"></i>
-            <div class="mini-stats"><span>+R$ 6.200 em 30 dias</span><span>5° mês operando</span></div>
-            <blockquote>"O rastreio emocional foi o divisor. Descobri que minhas piores operações eram sempre depois de discussões em casa. Hoje eu não opero nesses dias. Simples assim."</blockquote>
-            <div class="who">
-              <img src="https://images.unsplash.com/photo-1768247695726-022586dea3a1?w=100&q=80" alt="Trader Larissa P.">
-              <div><div class="name">Larissa P.</div><div class="role">Day trader • Mini dólar</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="tcard">
-            <i data-lucide="quote" class="quote-icon"></i>
-            <div class="mini-stats"><span>Win Rate 52% → 67%</span><span>Setup rompimento</span></div>
-            <blockquote>"Tinha 4 setups na cabeça. A planilha me mostrou que só 1 era lucrativo. Cortei 3 estratégias e dobrei o lucro mensal. Foi quase doloroso ver o número."</blockquote>
-            <div class="who">
-              <img src="https://images.unsplash.com/photo-1691622355048-4d75ac28ec31?w=100&q=80" alt="Trader Diego R.">
-              <div><div class="name">Diego R.</div><div class="role">Day trader • WIN</div></div>
-            </div>
-          </div>
-        </div>
+
+    <!-- Vídeo -->
+    <div id="video-section" style="max-width:860px;margin:0 auto 50px;border-radius:16px;overflow:hidden;border:1px solid var(--line-strong);background:#0A1623;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center">
+      <!-- Cole aqui o iframe do vídeo quando tiver. Ex: -->
+      <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/SEU_ID" frameborder="0" allowfullscreen style="display:block"></iframe> -->
+      <div style="text-align:center;padding:40px;color:var(--muted)">
+        <i data-lucide="play-circle" style="width:64px;height:64px;color:var(--green);margin-bottom:16px"></i>
+        <p style="margin:0;font-size:1rem">Vídeo em breve</p>
       </div>
-      <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Prints -->
+    <div id="prints-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px">
+      <!-- Substitua cada div abaixo por <img src="SEU_PRINT.png" ...> quando tiver os prints -->
+      <div style="background:#0A1623;border:1px dashed var(--line-strong);border-radius:14px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;flex-direction:column;gap:8px">
+        <i data-lucide="image" style="width:32px;height:32px"></i> Print do Dashboard
+      </div>
+      <div style="background:#0A1623;border:1px dashed var(--line-strong);border-radius:14px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;flex-direction:column;gap:8px">
+        <i data-lucide="image" style="width:32px;height:32px"></i> Print das Métricas
+      </div>
+      <div style="background:#0A1623;border:1px dashed var(--line-strong);border-radius:14px;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem;flex-direction:column;gap:8px">
+        <i data-lucide="image" style="width:32px;height:32px"></i> Print dos Gráficos
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow"><i data-lucide="help-circle" style="width:14px;height:14px"></i> Dúvidas frequentes</span>
+      <h2>Respondendo antes que você pergunte.</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Precisa instalar algum programa?</summary>
+        <p>Não. A planilha funciona direto no Google Sheets (gratuito, sem instalação) ou no Excel. Você abre o link e já está usando.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Funciona no celular?</summary>
+        <p>Sim. O Google Sheets tem app para Android e iOS. Você pode registrar suas operações pelo celular e ver os gráficos atualizados na hora.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como recebo o acesso após a compra?</summary>
+        <p>O acesso é entregue automaticamente pela Hotmart assim que o pagamento é confirmado. Você recebe um e-mail com o link da planilha em minutos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Funciona para qualquer ativo?</summary>
+        <p>Sim. Mini índice, mini dólar, ações, opções — qualquer ativo que você opera pode ser registrado. A planilha não é limitada por mercado.</p>
+      </details>
+      <details class="faq-item">
+        <summary>O que acontece se eu tiver dúvidas depois da compra?</summary>
+        <p>O suporte é feito diretamente pela plataforma Hotmart. Basta abrir um chamado lá e você será atendido.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como funciona a garantia de 7 dias?</summary>
+        <p>Se em até 7 dias após a compra você achar que a planilha não vale, basta solicitar o reembolso pela Hotmart. 100% devolvido, sem perguntas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Posso parcelar no cartão?</summary>
+        <p>Sim. Você pode pagar R$67 à vista ou parcelar em até 9x de R$8,80 no cartão de crédito.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -590,18 +611,28 @@
 <section class="final panel-deep" id="oferta">
   <div class="container">
     <div class="final-card">
-      <div class="urgency"><i data-lucide="clock" style="width:14px;height:14px"></i> Oferta de lançamento — preço promocional limitado</div>
+      <div class="urgency"><i data-lucide="clock" style="width:14px;height:14px"></i> Preço de lançamento válido até <strong>31/05</strong> — sobe depois</div>
+      <div id="countdown" style="display:flex;justify-content:center;gap:16px;margin:14px 0 20px;font-family:'JetBrains Mono',monospace">
+        <div style="text-align:center"><div id="cd-d" style="font-size:2rem;font-weight:700;color:var(--amber);line-height:1">00</div><div style="font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">dias</div></div>
+        <div style="font-size:2rem;font-weight:700;color:var(--muted);line-height:1;padding-top:2px">:</div>
+        <div style="text-align:center"><div id="cd-h" style="font-size:2rem;font-weight:700;color:var(--amber);line-height:1">00</div><div style="font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">horas</div></div>
+        <div style="font-size:2rem;font-weight:700;color:var(--muted);line-height:1;padding-top:2px">:</div>
+        <div style="text-align:center"><div id="cd-m" style="font-size:2rem;font-weight:700;color:var(--amber);line-height:1">00</div><div style="font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">min</div></div>
+        <div style="font-size:2rem;font-weight:700;color:var(--muted);line-height:1;padding-top:2px">:</div>
+        <div style="text-align:center"><div id="cd-s" style="font-size:2rem;font-weight:700;color:var(--amber);line-height:1">00</div><div style="font-size:.65rem;letter-spacing:.14em;color:var(--muted);text-transform:uppercase">seg</div></div>
+      </div>
       <h2>Pare de operar no escuro. Comece hoje.</h2>
       <p style="max-width:560px;margin:0 auto 8px">Acesso vitalício ao Trading Tracker Pro, com todas as atualizações futuras inclusas. Pagamento único.</p>
       <div class="price mono">R$67</div>
-      <div class="vat">à vista ou em até 9x no cartão</div>
+      <div class="vat">à vista ou 9x de R$8,80 no cartão</div>
 
       <a href="https://pay.hotmart.com/I105792658U" target="_blank" rel="noopener" class="cta" style="margin:0 auto 18px;display:inline-flex;font-size:1.1rem;padding:20px 36px">
         Quero meu Tracker por R$67 →
       </a>
 
       <div class="final-meta">
-        <span><i data-lucide="zap" style="width:14px;height:14px"></i> Acesso imediato</span>
+        <span><i data-lucide="shield-check" style="width:14px;height:14px"></i> 7 dias de garantia</span>
+        <span><i data-lucide="zap" style="width:14px;height:14px"></i> Acesso imediato via Hotmart</span>
         <span><i data-lucide="refresh-cw" style="width:14px;height:14px"></i> Atualizações vitalícias</span>
         <span><i data-lucide="credit-card" style="width:14px;height:14px"></i> Pagamento seguro</span>
       </div>
@@ -612,27 +643,33 @@
 <footer>
   <div class="container foot-inner">
     <div>© 2026 Trading Tracker Pro. Todos os direitos reservados.</div>
+    <div style="font-size:.82rem;color:var(--muted)">Suporte via <a href="https://hotmart.com/support" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">Hotmart</a></div>
   </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@12.1.2/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
 <script>
   lucide.createIcons();
 
-  new Swiper('#testiSwiper', {
-    slidesPerView: 1,
-    spaceBetween: 18,
-    grabCursor: true,
-    pagination: { el: '.swiper-pagination', clickable: true },
-    breakpoints: {
-      640: { slidesPerView: 1.4, spaceBetween: 18 },
-      900: { slidesPerView: 2.2, spaceBetween: 22 },
-      1180: { slidesPerView: 3, spaceBetween: 24 }
+  // Countdown até 31/05/2026 23:59:59
+  (function() {
+    const deadline = new Date('2026-05-31T23:59:59-03:00').getTime();
+    function tick() {
+      const diff = deadline - Date.now();
+      if (diff <= 0) { document.getElementById('countdown').innerHTML = '<span style="color:var(--amber);font-family:JetBrains Mono,monospace">Oferta encerrada</span>'; return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
+      document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
     }
-  });
+    tick(); setInterval(tick, 1000);
+  })();
 
   gsap.registerPlugin(ScrollTrigger);
 
